@@ -14,14 +14,19 @@ using sliverlight_prism_mvvm_sample.Model;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.ViewModel;
 
+using sliverlight_prism_mvvm_sample.Interfaces;
+
 namespace sliverlight_prism_mvvm_sample.ViewModel
 {
     public class MainPageViewModel : NotificationObject
     {
         private MainPageModel _model;
+        private IClickService _clickService;
 
-        public MainPageViewModel()
+        public MainPageViewModel(IClickService clickService)
         {
+            this._clickService = clickService;
+
             this._model = new MainPageModel()
                 {
                     First = "first",
@@ -77,7 +82,7 @@ namespace sliverlight_prism_mvvm_sample.ViewModel
 
         public void ExecuteClick()
         {
-            this.Result = string.Format("{0}-{1}", this.First, this.Second);
+            this.Result = this._clickService.GetResult(this.First, this.Second);
         }
 
     }

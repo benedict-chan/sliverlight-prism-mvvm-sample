@@ -11,6 +11,9 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
 using Microsoft.Practices.Unity;
+using sliverlight_prism_mvvm_sample.Interfaces;
+using sliverlight_prism_mvvm_sample.Implementations;
+
 
 namespace sliverlight_prism_mvvm_sample
 {
@@ -31,8 +34,11 @@ namespace sliverlight_prism_mvvm_sample
             //var page = new MainPage();
             //page.DataContext = new sliverlight_prism_mvvm_sample.ViewModel.MainPageViewModel();
             var container = new UnityContainer();
+            container.RegisterType<IClickService, ClickService>();
+
             var page = container.Resolve<MainPage>();
             page.DataContext = container.Resolve<sliverlight_prism_mvvm_sample.ViewModel.MainPageViewModel>();
+
 
             this.RootVisual = page;
 
