@@ -26,7 +26,10 @@ namespace sliverlight_prism_mvvm_sample
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.RootVisual = new MainPage();
+            var page = new MainPage();
+            page.DataContext = new sliverlight_prism_mvvm_sample.ViewModel.MainPageViewModel();
+            this.RootVisual = page;
+
         }
 
         private void Application_Exit(object sender, EventArgs e)

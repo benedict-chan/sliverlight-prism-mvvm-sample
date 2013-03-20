@@ -7,6 +7,16 @@
     d:DesignHeight="300" d:DesignWidth="400">
 
     <Grid x:Name="LayoutRoot" Background="White">
+        <TextBox x:Name="txt_First" HorizontalAlignment="Left" Height="23" Margin="109,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+                 Text="{Binding Path=First, Mode=TwoWay}"/>
+        <TextBox x:Name="txt_Second" HorizontalAlignment="Left" Height="23" Margin="109,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+                 Text="{Binding Path=Second, Mode=TwoWay}"/>
+        
+        <TextBox x:Name="txt_Result" HorizontalAlignment="Left" Height="23" Margin="109,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" 
+                 IsReadOnly="True" Text="{Binding Path=Result}" />
+        <Button Content="Click me" HorizontalAlignment="Left" Margin="267,59,0,0" VerticalAlignment="Top" Width="75"
+                Command="{Binding ClickCommand}"/>
+
 
     </Grid>
 </UserControl>
