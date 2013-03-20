@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
+using Microsoft.Practices.Unity;
+
 namespace sliverlight_prism_mvvm_sample
 {
     public partial class App : Application
@@ -26,8 +28,12 @@ namespace sliverlight_prism_mvvm_sample
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            var page = new MainPage();
-            page.DataContext = new sliverlight_prism_mvvm_sample.ViewModel.MainPageViewModel();
+            //var page = new MainPage();
+            //page.DataContext = new sliverlight_prism_mvvm_sample.ViewModel.MainPageViewModel();
+            var container = new UnityContainer();
+            var page = container.Resolve<MainPage>();
+            page.DataContext = container.Resolve<sliverlight_prism_mvvm_sample.ViewModel.MainPageViewModel>();
+
             this.RootVisual = page;
 
         }
